@@ -6,7 +6,7 @@
         <NuxtLink to="/">Home page</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/about" >About</NuxtLink>
+        <NuxtLink to="/about">About</NuxtLink>
       </li>
     </ul>
   </div>
@@ -14,10 +14,9 @@
 
 <script>
 export default {
-  name: "navigation"
-}
+  name: "navigation",
+};
 </script>
 
 <style scoped>
-
 </style>

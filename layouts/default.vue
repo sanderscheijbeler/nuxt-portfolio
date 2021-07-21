@@ -1,13 +1,24 @@
 <template>
-  <div class="container">
-<!--    <button @click="switchPosition" style="position: fixed; top: 1rem; left: 1rem;z-index: 10;">-->
-<!--      KLIK-->
-<!--    </button>-->
-    <div class="left col position" :class="{'position--left': PosLeft, 'position--right': !PosLeft}">
-      <Nuxt/>
+  <div class="layout__container">
+    <div
+      class="layout__col layout__content layout__position"
+      :class="{
+        'layout__position--left': PosLeft,
+        'layout__position--right': !PosLeft,
+      }"
+    >
+      <button v-if="!this.PosLeft" @click.prevent="switchPosition">Switch</button>
+      <Nuxt />
     </div>
-    <div class="right col position" :class="{'position--left': !PosLeft, 'position--right': PosLeft}">
-      <navigation @switch="PosLeft = !PosLeft" />
+    <div
+      class="layout__col layout__nav layout__position"
+      :class="{
+        'layout__position--left': !PosLeft,
+        'layout__position--right': PosLeft,
+      }"
+    >
+    <button v-if="this.PosLeft" @click.prevent="switchPosition">Switch</button>
+      <navigation @switch="switchPosition" />
     </div>
   </div>
 </template>
@@ -17,57 +28,18 @@ export default {
   name: "default",
   data() {
     return {
-      PosLeft: true
-    }
+      PosLeft: true,
+    };
   },
   watch: {
     $route() {
-      this.PosLeft = !this.PosLeft
+      this.switchPosition();
     },
   },
   methods: {
-    // switchPosition() {
-    //   this.PosLeft = !this.PosLeft
-    // }
-  }
-}
+    switchPosition() {
+      this.PosLeft = !this.PosLeft;
+    },
+  },
+};
 </script>
-
-<style>
-.container {
-  display: flex;
-  position: relative;
-  min-height: 100vh;
-}
-
-.col {
-  width: 50vw;
-  height: 100vh;
-}
-
-.left {
-  background-color: pink;
-}
-
-.right {
-  background-color: aqua;
-}
-
-.position {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate3d(50%,0,0);
-  transition: all .4s ease;
-}
-
-.position--left {
-  transform: translate3d(0%,0,0);
-  transition: all .4s ease;
-}
-
-.position--right {
-  transform: translate3d(100%,0,0);
-  transition: all .4s ease;
-}
-</style>

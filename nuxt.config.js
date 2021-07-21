@@ -25,6 +25,9 @@ export default {
       console.log('Before enter...');
     }
   },
+  router: {
+    linkActiveClass: 'navigation__link--active'
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [

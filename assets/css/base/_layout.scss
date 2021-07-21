@@ -1,0 +1,55 @@
+.layout {
+  &__container {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  &__col {
+    width: 50vw;
+    height: 100vh;
+
+    @media screen and (max-width: 400px) {
+      width: calc(100vw - #{$mobile-spacer});
+      height: calc(100vh - #{$mobile-spacer});
+    }
+  }
+
+  &__position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate3d(50%, 0, 0);
+    transition: all 0.4s ease;
+
+    &--left {
+      transform: translate3d(0%, 0, 0);
+      transition: all 0.4s ease;
+
+      @media screen and (max-width: 400px) {
+        transform: translate3d(0%, 0, 0);
+        transition: all 0.4s ease;
+        z-index: 5;
+      }
+    }
+
+    &--right {
+      transform: translate3d(100%, 0, 0);
+      transition: all 0.4s ease;
+
+      @media screen and (max-width: 400px) {
+        transform: translate3d(#{$mobile-spacer}, #{$mobile-spacer}, 0);
+        transition: all 0.4s ease;
+        z-index: 10;
+      }
+    }
+  }
+
+  &__content {
+    background-color: pink;
+  }
+
+  &__nav {
+    background-color: aqua;
+  }
+}
