@@ -1,12 +1,19 @@
 <template>
   <div class="page">
-    <h1>Contact</h1>
+    <div>
+      <h1>Contact me</h1>
+      <a class="full-width" href="mailto:sanderscheijbeler@gmail.com">Send me an e-mail</a>
+    </div>
   </div>
 </template>
 
 <script>
+import fitty from 'fitty';
 export default {
-  name: "contact"
+  name: "contact",
+  mounted() {
+    fitty('.full-width')
+  }
 }
 </script>
 

@@ -9,3 +9,19 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
+.switch-button {
+  display: none;
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  z-index: 10;
+
+  @media screen and (max-width: $breakpoint) {
+    display: block;
+  }
+}
+
+.page {
+  overflow-y: auto;
+}

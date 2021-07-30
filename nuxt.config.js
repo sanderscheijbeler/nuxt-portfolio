@@ -21,9 +21,6 @@ export default {
   pageTransition: {
     name: 'page',
     mode: 'out-in',
-    beforeEnter (el) {
-      console.log('Before enter...');
-    }
   },
   router: {
     linkActiveClass: 'navigation__link--active'
