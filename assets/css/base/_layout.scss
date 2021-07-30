@@ -2,14 +2,19 @@
   &__container {
     display: flex;
     position: relative;
-    min-height: 100vh;
+    height: 100%;
   }
 
   &__col {
     width: 50vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: $breakpoint) {
       width: calc(100vw - #{$mobile-spacer});
       height: calc(100vh - #{$mobile-spacer});
     }
@@ -37,7 +42,7 @@
       transform: translate3d(100%, 0, 0);
       transition: all 0.4s ease;
 
-      @media screen and (max-width: 400px) {
+      @media screen and (max-width: $breakpoint) {
         transform: translate3d(#{$mobile-spacer}, #{$mobile-spacer}, 0);
         transition: all 0.4s ease;
         z-index: 10;
@@ -46,10 +51,23 @@
   }
 
   &__content {
-    background-color: pink;
+    background-color: red;
   }
 
   &__nav {
-    background-color: aqua;
+    background-color: blue;
+
+    & > div {
+      overflow-y: auto;
+    }
+  }
+
+  &__nav, &__content {
+    & > div {
+      height: 100%;
+      width: 100%;
+      border: 2px solid white;
+      padding: 2rem;
+    }
   }
 }

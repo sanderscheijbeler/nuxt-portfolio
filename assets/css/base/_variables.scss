@@ -1,8 +1,17 @@
 //Fonts
 
 //Colors
+$black: #000000;
 
 //Typography
+$font-heading: poppins;
+$font-heading-fallback: serif;
+$font-text: poppins;
+$font-text-fallback: sans-serif;
+
 
 //Spaces
 $mobile-spacer:  50px;
+
+
+$breakpoint: 600px;

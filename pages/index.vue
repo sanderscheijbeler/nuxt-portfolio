@@ -1,6 +1,13 @@
 <template>
   <div class="page">
-    <h1>Index</h1>
+    <h1>Home</h1>
+
+    <blockquote cite="http://www.sanderscheijbeler.nl">
+      <q>
+        I like CSS
+      </q>
+    </blockquote>
+
   </div>
 </template>
 
@@ -10,4 +17,8 @@ export default {}
 
 <style scoped>
 
+blockquote {
+  margin: 0;
+  padding: 1rem;
+}
 </style>
