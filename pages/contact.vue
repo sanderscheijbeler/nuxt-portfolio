@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style scoped>
-  h1 {
-    color: green;
+  .full-width {
+    margin-top: 4rem;
   }
 </style>

@@ -13,16 +13,20 @@
                 I'm known for my open and honest personality. And because of that i thought it would be fun to, at your
                 own risk, give you a random fact about me.
             </p>
-            <button v-on:click="randomize()">Give me a random fact</button>
+            <button v-on:click="randomFactHandler">Give me a random fact</button>
             <div>
                 <span>
                     I...
                 </span>
-                <transition name="bounce">
-                <span>
-                    {{ wordsList[wordIndex] }}
-                </span>
+                <transition name="fade">
+                  <span v-for="(item, index) in wordsList" :key="index" v-if="index === wordIndex">
+                    {{ item }}
+                  </span>
                 </transition>
+
+              <div v-if="this.clicks >= wordsList.length">
+                You really want to know so much more about me? Why not send an email? Give me you phonenumber, I'll call you!
+              </div>
             </div>
         </div>
     </div>
@@ -35,23 +39,32 @@ export default {
     name: "about",
     data() {
         return {
+            clicks: 0,
             wordIndex: 0,
             wordsList: [
                 '',
                 '... am a sucker for speculaas.',
                 '... know all the words to the dutch version of the musical "Les Miserable".',
-                '... own a kilt. (Its the Mckenzie modern color tartan). No im not Scottish.',
+                '... own a kilt. (Its the Mckenzie modern color tartan). And no im not Scottish.',
                 '... own a bagpipe. I was learning to play in 2013 but quit because of lack of free time. No im not Scottish.',
-                '... know the words to alot of disney songs. Dont ask =]',
-                '... enjoy special beers. At this time I really like Leffe Triple.',
-                '... learned webdevelopment while working fulltime as a policeofficer.',
+                '... know the words to a lot of disney songs. Dont ask =]',
+                '... enjoy special beers. At this time I really enjoy Leffe Triple.',
+                '... learned webdevelopment while working full time as a police officer.',
             ]
         }
     },
     methods: {
-        randomize() {
-            this.wordIndex = Math.floor(Math.random() * (this.wordsList.length));
-        }
+      randomFactHandler() {
+            this.clicks++
+            const oldVal = this.wordIndex;
+            const newVal = this.randomize();
+            if ( oldVal !== newVal ) {
+              this.wordIndex = newVal
+            }
+        },
+      randomize() {
+        return Math.floor(Math.random() * (this.wordsList.length)) + 1
+      }
     },
     computed: {
         myAge() {
@@ -60,10 +73,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-h1 {
-    color: yellow;
-}
-
-</style>

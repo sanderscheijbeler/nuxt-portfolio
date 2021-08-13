@@ -42,9 +42,25 @@ ul {
       font-size: 4vw;
       line-height: 1.4em;
       text-decoration: none;
+      position: relative;
+      transition: all 0.6s;
 
+      &:before {
+        content: "";
+        width: 0;
+        height: 0.1em;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #000;
+        transition: all 0.3s;
+      }
       &:hover {
-        text-decoration: underline;
+        &:before {
+          width: 100%;
+          left: 0;
+          background: #000;
+        }
       }
     }
   }
