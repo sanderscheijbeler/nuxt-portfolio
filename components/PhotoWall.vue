@@ -1,18 +1,17 @@
 <template>
   <div class="photowall">
-    <div class="grid grid--center">
-      <div class="grid__item"></div>
-      <div class="grid__item"></div>
-      <div class="grid__item"></div>
-      <div class="grid__item"></div>
-      <div class="grid__item"></div>
-    </div>
+<!--    <img class="b-lazy" :data-src="/assets/images/sander-1.png" alt="me">-->
   </div>
 
 </template>
 
 <script>
+// import mixinBlazy from "../mixins/blazy";
+// import Blazy from "blazy";
 export default {
-  name: "PhotoWall"
+  name: "PhotoWall",
+  mounted () {
+    // new Blazy();
+  }
 }
 </script>

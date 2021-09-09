@@ -13,8 +13,8 @@ body {
 .switch-button {
   display: none;
   position: absolute;
-  top: 32px;
-  right: 32px;
+  top: 2rem;
+  right: 2rem;
   z-index: 10;
 
   @media screen and (max-width: $breakpoint) {
@@ -24,4 +24,39 @@ body {
 
 .page {
   overflow-y: auto;
+}
+
+.link {
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: .8rem;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.6s;
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0.1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    &:before {
+      width: 100%;
+      left: 0;
+      background: #000;
+    }
+  }
+}
+
+.quoteblock {
+  position: relative;
+  padding: 1rem;
+  transition: 220ms all ease-in;
 }
